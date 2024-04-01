@@ -1,64 +1,38 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Curso;
 
 use Illuminate\Http\Request;
 
 class CursoController extends Controller
 {
     
-    public function func1($num1,$num2) {
-        $acu1=0;
-        $acu2=0;
-        
-        for ($i=1;$i<$num1 ; $i++)
-        {
-           if($num1 % $i==0){
-            $acu1=$acu1+$i;
-            }
-           
-        }
+    public function index(){
 
-        for ($i=1;$i<$num2 ; $i++)
-        {
-           if($num2 % $i==0){
-            $acu2=$acu2+$i;
-            }
-           
-        }
-       
-        if($acu1==$num2 && $acu2==$num1 ){
-            return'son numeros amigos';
-          }
-        else{
-            return 'no son numeros amigos';
-        }  
-
+        $cursos = Curso::orderBy('id', 'desc')->get();
+        return view('cursos.listar', compact('cursos'));
 
     }
-
-
-
+    
     public function create(){
-
-        return view('formulario');
+        return view('cursos.create');
 
     }
 
     public function store(Request $request){
 
-        $num1=$request->num1;
-        $num2=$request->num2;
+        $curso= new Curso();
+        $curso->name=$request->name;
+        $curso->descripcion=$request->descripcion;
 
-        
-
-
+        //ADJUNTAR EL PDF
+        $file=$request->file("urlPdf");
+        $nombreArchivo = "pdf_".time().".".$file->guessExtension();
+        $request->file('urlPdf')->storeAs('public/imagenes', $nombreArchivo );
+        $curso->urlPdf = $nombreArchivo;
+        $curso->save();
 
     }
-
-
-
-
-
-
+       
 }
