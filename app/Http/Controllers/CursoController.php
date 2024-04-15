@@ -14,12 +14,12 @@ class CursoController extends Controller
         return view('cursos.listar', compact('cursos'));
 
     }
-    
+//Create    
     public function create(){
         return view('cursos.create');
 
     }
-
+//Store
     public function store(Request $request){
 
         $curso= new Curso();
@@ -34,5 +34,35 @@ class CursoController extends Controller
         $curso->save();
 
     }
+//Show
+    public function show(Curso $curso){
+
+      return view('cursos.show',compact('curso'));
+   
+    }
+    
+    public function destroy (Curso $curso){
+      $curso->delete();
+      return redirect()->route('curso.index');
+    }
+
+ //Edit
+    public function edit(Curso $curso){//Encuentro el Curso
+    
+      return view('cursos.edit',compact('curso'));
+
+    }
+
+ //Update
+    public function update(Request $request, Curso $curso){
+            
+      $curso->name = $request->name;
+      $curso->descripcion = $request->descripcion;
+      $curso->save();
+   
+      return redirect()->route('curso.index');
+   
+    }
+
        
 }
