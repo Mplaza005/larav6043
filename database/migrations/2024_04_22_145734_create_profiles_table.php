@@ -17,9 +17,9 @@ return new class extends Migration
             $table->string('title',45);
             $table->text('biografia');
             $table->string('website',45);
-            //creamos el campor para albergar la llave foranea
+            //creamos el campo para albergar la llave foranea
             $table->unsignedBigInteger('user_id')->unique();
-
+            //asociamos el user_id al id de la tabla user
             $table->foreign('user_id')
                 ->references('id')
                 ->on('users')
