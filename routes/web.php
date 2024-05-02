@@ -15,21 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('formulario');
-// });
 
-
-// Route::get('/formulario',[CursoController::class,'create']);
-// Route::post('/formulario',[CursoController::class,'store'])->name('curso.store');
-
-
-
-// Route::get('/frmfactorial',[FactorialController::class,'create']);
-// Route::post('/resultado',[FactorialController::class,'store'])->name('facto.store');
-
-// Route::get('/formularioProducto',[ProductController::class,'create']);
-// Route::post('/storeProducto',[ProductController::class,'store'])->name('product.store');
+////////////////////         CURSO          ///////////////////////
 
 Route::get('cursos/listar',[CursoController::class,'index'])->name('curso.index');
 Route::get('cursos/create',[CursoController::class,'create']);
@@ -38,3 +25,8 @@ Route::get('curso/{curso}',[CursoController::class,'show'])->name('curso.show');
 Route::put('curso/{curso}',[CursoController::class,'update'])->name('curso.update');
 Route::delete('curso/{curso}',[CursoController::class,'destroy'])->name('curso.destroy');
 Route::get('curso/{curso}/editar',[CursoController::class,'edit'])->name('curso.edit');
+
+////////////////////         PROFILE          ///////////////////////
+
+Route::get('profile/create',[ProfileController::class,'create']);
+Route::post('profile/store', [ProfileController::class,'store'])->name('profile.store');
