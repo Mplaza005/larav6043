@@ -21,7 +21,7 @@
         <label>
         Descripcion:
         <br>
-        <input name="descripcion" type="text" value="{{old('escripcion',$curso->descripcion)}}">
+        <input name="descripcion" type="text" value="{{old('descripcion',$curso->descripcion)}}">
         <br>
         </label>
         <br>

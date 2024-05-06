@@ -7,7 +7,7 @@
 </head>
 <body>
 
-    <h1>Formulario profile</h1>
+    <h1>Formulario profil</h1>
     <form action="{{route('profile.store')}}" method="POST" enctype="multipart/form-data">
 
         @csrf
@@ -17,7 +17,7 @@
       
         <select name="user_id">
             @foreach($users as $user)
-                <option value="{{ $user->id }}">{{ $user->id }}</option>
+                <option value="{{ $user->id }}">{{ $user->id }} - {{ $user->name }}- {{ $user->email }}</option>
             @endforeach
         </select>
 
