@@ -18,15 +18,23 @@ use Illuminate\Support\Facades\Route;
 
 ////////////////////         CURSO          ///////////////////////
 
-Route::get('cursos/listar',[CursoController::class,'index'])->name('curso.index');
-Route::get('cursos/create',[CursoController::class,'create']);
-Route::post('cursos/store', [CursoController::class,'store'])->name('cursos.store');
-Route::get('curso/{curso}',[CursoController::class,'show'])->name('curso.show');
-Route::put('curso/{curso}',[CursoController::class,'update'])->name('curso.update');
-Route::delete('curso/{curso}',[CursoController::class,'destroy'])->name('curso.destroy');
-Route::get('curso/{curso}/editar',[CursoController::class,'edit'])->name('curso.edit');
+// Route::get('cursos/listar',[CursoController::class,'index'])->name('curso.index');
+// Route::get('cursos/create',[CursoController::class,'create']);
+// Route::post('cursos/store', [CursoController::class,'store'])->name('cursos.store');
+// Route::get('curso/{curso}',[CursoController::class,'show'])->name('curso.show');
+// Route::put('curso/{curso}',[CursoController::class,'update'])->name('curso.update');
+// Route::delete('curso/{curso}',[CursoController::class,'destroy'])->name('curso.destroy');
+// Route::get('curso/{curso}/editar',[CursoController::class,'edit'])->name('curso.edit');
 
 ////////////////////         PROFILE          ///////////////////////
 
-Route::get('profile/create',[ProfileController::class,'create']);
-Route::post('profile/store', [ProfileController::class,'store'])->name('profile.store');
+// Route::get('profile/create',[ProfileController::class,'create']);
+// Route::post('profile/store', [ProfileController::class,'store'])->name('profile.store');
+
+
+Route::get('trucktruker/asociar',[TruckTruckerController::class,'asociar'])->name('Trucktrucker.asociar');
+Route::post('trucktruker/store',[TruckTruckerController::class,'store'])->name('trucktrucker.store');
+
+// Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

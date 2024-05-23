@@ -11,12 +11,12 @@ class CursoController extends Controller
     public function index(){
 
         $cursos = Curso::orderBy('id', 'desc')->get();
-        return view('cursos.listar', compact('cursos'));
+        return view('home');
 
     }
 //Create    
     public function create(){
-        return view('cursos.create');
+        return view('home');
 
     }
 //Store
